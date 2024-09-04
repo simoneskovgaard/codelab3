@@ -2,12 +2,14 @@ package dk.cph;
 
 
 import dk.cph.config.HibernateConfig;
+
 import dk.cph.dao.TeacherDaoImpl;
 import dk.cph.model.Teacher;
 import jakarta.persistence.EntityManagerFactory;
 
 public class Main {
     public static void main(String[] args) {
+
         EntityManagerFactory emf = HibernateConfig.getEntityManagerFactory(false);
 
         TeacherDaoImpl dao = TeacherDaoImpl.getInstance(emf);

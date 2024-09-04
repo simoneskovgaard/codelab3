@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -34,6 +36,15 @@ public class Course {
         if (this.teacher == null) {
             teacher.addCourse(this);
             this.teacher = teacher;
+
+    @ManyToMany(mappedBy = "courses")
+    private Set<Student> students = new HashSet<>();
+
+    public void addStudent(Student student) {
+        if (student != null) {
+            this.students.add(student);
+            student.getCourses().add(this);
+
         }
     }
 
