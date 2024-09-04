@@ -32,10 +32,6 @@ public class Course {
     @ManyToOne
     private Teacher teacher;
 
-    public void addTeacher(Teacher teacher) {
-        if (this.teacher == null) {
-            teacher.addCourse(this);
-            this.teacher = teacher;
 
     @ManyToMany(mappedBy = "courses")
     private Set<Student> students = new HashSet<>();
@@ -47,7 +43,13 @@ public class Course {
 
         }
     }
+        public void addTeacher (Teacher teacher){
+            if (this.teacher == null) {
+                teacher.addCourse(this);
+                this.teacher = teacher;
+            }
 
-}
+        }
+    }
 
 
