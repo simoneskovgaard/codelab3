@@ -26,6 +26,16 @@ public class Course {
     @Column(name = "end_date", nullable = false)
     private LocalDate endDate;
 
+    @ManyToOne
+    private Teacher teacher;
+
+    public void addTeacher(Teacher teacher) {
+        if (this.teacher == null) {
+            teacher.addCourse(this);
+            this.teacher = teacher;
+        }
+    }
+
 }
 
 
