@@ -20,7 +20,7 @@ public class Teacher {
     private Integer id;
 
     @Column(name = "name", nullable = false)
-    private CourseName name;
+    private String name;
 
     @Column(name = "email", nullable = false, unique = true)
     private String email;
@@ -35,4 +35,9 @@ public class Teacher {
         courses.add(course);
     }
 
+    public Teacher(String name, String email, String zoom) {
+        this.name = name;
+        this.email = email;
+        this.zoom = zoom;
+    }
 }

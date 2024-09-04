@@ -1,5 +1,8 @@
 package dk.cph.config;
 
+import dk.cph.model.Course;
+import dk.cph.model.Student;
+import dk.cph.model.Teacher;
 import jakarta.persistence.EntityManagerFactory;
 import lombok.NoArgsConstructor;
 import org.hibernate.SessionFactory;
@@ -20,7 +23,7 @@ public class HibernateConfig {
 
             Properties props = new Properties();
 
-            props.put("hibernate.connection.url", "jdbc:postgresql://localhost:5432/points?currentSchema=public");
+            props.put("hibernate.connection.url", "jdbc:postgresql://localhost:5432/university?currentSchema=public");
             props.put("hibernate.connection.username", "postgres");
             props.put("hibernate.connection.password", "postgres");
             props.put("hibernate.show_sql", "true"); // show sql in console
@@ -31,8 +34,8 @@ public class HibernateConfig {
             props.put("hibernate.connection.driver_class", "org.postgresql.Driver"); // driver class for postgresql
             props.put("hibernate.archive.autodetection", "class"); // hibernate scans for annotated classes
             props.put("hibernate.current_session_context_class", "thread"); // hibernate current session context
-            props.put("hibernate.hbm2ddl.auto", "create-drop"); // hibernate creates tables based on entities
-            // props.put("hibernate.hbm2ddl.auto", "update"); // hibernate creates tables based on entities
+//            props.put("hibernate.hbm2ddl.auto", "create-drop"); // hibernate creates tables based on entities
+             props.put("hibernate.hbm2ddl.auto", "update"); // hibernate creates tables based on entities
 
 
             return getEntityManagerFactory(configuration, props);
@@ -75,6 +78,9 @@ public class HibernateConfig {
 
     private static void getAnnotationConfiguration(Configuration configuration) {
        // configuration.addAnnotatedClass(Point.class);
+       configuration.addAnnotatedClass(Student.class);
+       configuration.addAnnotatedClass(Teacher.class);
+       configuration.addAnnotatedClass(Course.class);
     }
 
     public static EntityManagerFactory getEntityManagerFactory(boolean isTest) {

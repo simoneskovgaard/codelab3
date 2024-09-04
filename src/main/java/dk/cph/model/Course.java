@@ -17,8 +17,9 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "description", nullable = false)
-    private String description;
+    @Column(name = "course_name", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private CourseName courseName;
 
     @Column(name = "start_date", nullable = false)
     private LocalDate startDate;
