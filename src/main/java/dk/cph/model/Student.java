@@ -42,11 +42,9 @@ public class Student {
     @ManyToMany
     private Set<Course> courses = new HashSet<>();
 
-    public Student(String name, String email, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Student(String name, String email) {
         this.name = name;
         this.email = email;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
     }
 
     @PrePersist

@@ -1,10 +1,8 @@
 package dk.cph.dao;
 
-import dk.cph.model.Course;
 import dk.cph.model.Student;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.TypedQuery;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
