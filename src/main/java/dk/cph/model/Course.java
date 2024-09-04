@@ -31,6 +31,13 @@ public class Course {
     @ManyToMany(mappedBy = "courses")
     private Set<Student> students = new HashSet<>();
 
+    public void addStudent(Student student) {
+        if (student != null) {
+            this.students.add(student);
+            student.getCourses().add(this);
+        }
+    }
+
 }
 
 
