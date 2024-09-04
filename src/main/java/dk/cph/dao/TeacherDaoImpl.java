@@ -58,8 +58,8 @@ public class TeacherDaoImpl implements GenericDAO<Teacher, Integer> {
     @Override
     public Teacher updateEntity(Teacher entity, Integer id) {
         try(EntityManager em = emf.createEntityManager()) {
-            em.getTransaction().begin();
             Teacher teacher = em.find(Teacher.class, id);
+            em.getTransaction().begin();
             em.merge(entity);
             em.getTransaction().commit();
             return teacher;
