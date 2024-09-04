@@ -1,5 +1,6 @@
 package dk.cph.dao;
 
+import dk.cph.model.Course;
 import dk.cph.model.Student;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -26,8 +27,7 @@ public class StudentDaoImpl implements GenericDAO<Student, Integer> {
     @Override
     public List<Student> findAll() {
         try (EntityManager em = emf.createEntityManager()) {
-            TypedQuery<Student> query = em.createQuery("select q from Student q", Student.class);
-            return query.getResultList();
+            return em.createQuery("from Student ", Student.class).getResultList();
         }
     }
 
