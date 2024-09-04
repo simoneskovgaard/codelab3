@@ -19,14 +19,23 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "description", nullable = false)
-    private String description;
+    @Column(name = "course_name", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private CourseName courseName;
 
     @Column(name = "start_date", nullable = false)
     private LocalDate startDate;
 
     @Column(name = "end_date", nullable = false)
     private LocalDate endDate;
+
+    @ManyToOne
+    private Teacher teacher;
+
+    public void addTeacher(Teacher teacher) {
+        if (this.teacher == null) {
+            teacher.addCourse(this);
+            this.teacher = teacher;
 
     @ManyToMany(mappedBy = "courses")
     private Set<Student> students = new HashSet<>();
@@ -35,6 +44,7 @@ public class Course {
         if (student != null) {
             this.students.add(student);
             student.getCourses().add(this);
+
         }
     }
 

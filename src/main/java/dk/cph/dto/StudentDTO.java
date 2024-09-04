@@ -1,5 +1,6 @@
 package dk.cph.dto;
 
+
 import dk.cph.model.Course;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,4 +21,5 @@ public class StudentDTO {
         this.email = email;
         this.courses = courses;
     }
+
 }
