@@ -2,6 +2,7 @@ package dk.cph.dto;
 
 
 import dk.cph.model.Course;
+import dk.cph.model.Student;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,11 +15,14 @@ public class StudentDTO {
 
     private String name;
     private String email;
-    private Set<Course> courses = new HashSet<>();
+    private Set<CourseDTO> courses = new HashSet<>();
 
-    public StudentDTO(String name, String email, Set<Course> courses) {
-        this.name = name;
-        this.email = email;
+    public StudentDTO(Student student) {
+        this.name = student.getName();
+        this.email = student.getEmail();
+        for (Course course : student.getCourses()) {
+            courses.add(new CourseDTO(course));
+        }
         this.courses = courses;
     }
 
