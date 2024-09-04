@@ -20,7 +20,7 @@ public class Teacher {
     private Integer id;
 
     @Column(name = "name", nullable = false)
-    private String name;
+    private CourseName name;
 
     @Column(name = "email", nullable = false, unique = true)
     private String email;
