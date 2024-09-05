@@ -50,6 +50,12 @@ public class Course {
             }
 
         }
+
+    public Course(CourseName courseName, LocalDate startDate, LocalDate endDate) {
+        this.courseName = courseName;
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
+}
 
 

@@ -31,8 +31,10 @@ public class Teacher {
     @OneToMany(mappedBy = "teacher")
     private Set<Course> courses;
 
-    void addCourse(Course course) {
+    public void addCourse(Course course) {
+        if (courses != null) {
         courses.add(course);
+        }
     }
 
     public Teacher(String name, String email, String zoom) {
