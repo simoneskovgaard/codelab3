@@ -1,6 +1,7 @@
 package dk.cph.config;
 
 import dk.cph.model.Course;
+import dk.cph.model.GradeSheet;
 import dk.cph.model.Student;
 import dk.cph.model.Teacher;
 import jakarta.persistence.EntityManagerFactory;
@@ -25,7 +26,7 @@ public class HibernateConfig {
 
             props.put("hibernate.connection.url", "jdbc:postgresql://localhost:5432/university?currentSchema=public");
             props.put("hibernate.connection.username", "postgres");
-            props.put("hibernate.connection.password", "postgres");
+            props.put("hibernate.connection.password", "mydatabases0806");
             props.put("hibernate.show_sql", "true"); // show sql in console
             props.put("hibernate.format_sql", "true"); // format sql in console
             props.put("hibernate.use_sql_comments", "true"); // show sql comments in console
@@ -81,6 +82,7 @@ public class HibernateConfig {
        configuration.addAnnotatedClass(Student.class);
        configuration.addAnnotatedClass(Teacher.class);
        configuration.addAnnotatedClass(Course.class);
+       configuration.addAnnotatedClass(GradeSheet.class);
     }
 
     public static EntityManagerFactory getEntityManagerFactory(boolean isTest) {

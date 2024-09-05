@@ -32,7 +32,9 @@ public class Teacher {
     private Set<Course> courses;
 
     void addCourse(Course course) {
-        courses.add(course);
+        if (courses == null) {
+            courses.add(course);
+        }
     }
 
     public Teacher(String name, String email, String zoom) {

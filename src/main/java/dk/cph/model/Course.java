@@ -36,6 +36,12 @@ public class Course {
     @ManyToMany(mappedBy = "courses")
     private Set<Student> students = new HashSet<>();
 
+    public Course(CourseName courseName, LocalDate startDate, LocalDate endDate) {
+        this.courseName = courseName;
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
+
     public void addStudent(Student student) {
         if (student != null) {
             this.students.add(student);
@@ -51,5 +57,3 @@ public class Course {
 
         }
     }
-
-
