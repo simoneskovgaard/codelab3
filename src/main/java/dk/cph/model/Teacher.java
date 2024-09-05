@@ -32,7 +32,7 @@ public class Teacher {
     private Set<Course> courses;
 
     void addCourse(Course course) {
-        if (courses == null) {
+        if (courses != null) {
             courses.add(course);
         }
     }

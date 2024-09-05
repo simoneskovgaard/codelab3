@@ -6,7 +6,6 @@ import dk.cph.config.HibernateConfig;
 import dk.cph.dao.TeacherDaoImpl;
 import dk.cph.model.*;
 import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.EnumType;
 
 import java.time.LocalDate;
 
@@ -26,8 +25,8 @@ public class Main {
         Course english = new Course(CourseName.ENGLISH, LocalDate.of(2024,8,19), LocalDate.of(2025,1,14));
         math.addStudent(studentOne);
         english.addStudent(studentTwo);
-//        math.addTeacher(teacherOne);
-//        english.addTeacher(teacherTwo);
+        math.addTeacher(teacherOne);
+        english.addTeacher(teacherTwo);
         GradeSheet gradeOne = new GradeSheet(CourseName.MATH, GradeScale.B);
         GradeSheet gradeTwo = new GradeSheet(CourseName.ENGLISH, GradeScale.A);
         gradeOne.addStudent(studentTwo);
