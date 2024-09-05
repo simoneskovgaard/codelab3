@@ -8,9 +8,9 @@ import lombok.NoArgsConstructor;
 @Table(name = "gradesheet")
 public class GradeSheet {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Integer id; //Having it's own id isn't needed in a one-to-one relationship where it contains a foreign key and uses it as its primary key
 
     @Enumerated(EnumType.STRING)
     private CourseName courseName;
@@ -18,8 +18,9 @@ public class GradeSheet {
     @Enumerated(EnumType.STRING)
     private GradeScale gradeScale;
 
+    @Id
     @OneToOne
-    @MapsId
+//    @MapsId //Having this doesn't make a difference, might be due to some default settings
     private Student student;
 
     public void addStudent(Student student) {
