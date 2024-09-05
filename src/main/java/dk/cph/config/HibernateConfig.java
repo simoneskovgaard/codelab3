@@ -1,6 +1,7 @@
 package dk.cph.config;
 
 import dk.cph.model.Course;
+import dk.cph.model.GradeSheet;
 import dk.cph.model.Student;
 import dk.cph.model.Teacher;
 import jakarta.persistence.EntityManagerFactory;
@@ -81,6 +82,7 @@ public class HibernateConfig {
        configuration.addAnnotatedClass(Student.class);
        configuration.addAnnotatedClass(Teacher.class);
        configuration.addAnnotatedClass(Course.class);
+       configuration.addAnnotatedClass(GradeSheet.class);
     }
 
     public static EntityManagerFactory getEntityManagerFactory(boolean isTest) {
