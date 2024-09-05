@@ -20,7 +20,7 @@ public class CourseDTO {
         this.name = course.getCourseName();
         this.startDate = course.getStartDate();
         this.endDate = course.getEndDate();
-        for (Student student : course.getStudents()) {
+        for (Student student : course.getStudents()) { //ideally this would be a convertToDTO method on the class course, and same goes for the rest of the DTOs
             students.add(new StudentDTO(student));
         }
         this.students = students;

@@ -1,6 +1,7 @@
 package dk.cph.config;
 
 import dk.cph.model.Course;
+import dk.cph.model.GradeSheet;
 import dk.cph.model.Student;
 import dk.cph.model.Teacher;
 import jakarta.persistence.EntityManagerFactory;
@@ -34,8 +35,8 @@ public class HibernateConfig {
             props.put("hibernate.connection.driver_class", "org.postgresql.Driver"); // driver class for postgresql
             props.put("hibernate.archive.autodetection", "class"); // hibernate scans for annotated classes
             props.put("hibernate.current_session_context_class", "thread"); // hibernate current session context
-//            props.put("hibernate.hbm2ddl.auto", "create-drop"); // hibernate creates tables based on entities
-             props.put("hibernate.hbm2ddl.auto", "update"); // hibernate creates tables based on entities
+            props.put("hibernate.hbm2ddl.auto", "create-drop"); // hibernate creates tables based on entities
+//             props.put("hibernate.hbm2ddl.auto", "update"); // hibernate creates tables based on entities
 
 
             return getEntityManagerFactory(configuration, props);
@@ -81,6 +82,7 @@ public class HibernateConfig {
        configuration.addAnnotatedClass(Student.class);
        configuration.addAnnotatedClass(Teacher.class);
        configuration.addAnnotatedClass(Course.class);
+       configuration.addAnnotatedClass(GradeSheet.class);
     }
 
     public static EntityManagerFactory getEntityManagerFactory(boolean isTest) {
